@@ -23,6 +23,7 @@ RUN set -ex; \
 		libpng-dev \
 		libwebp-dev \
 		libzip-dev \
+		gmp-dev \
 	; \
 	\
 	docker-php-ext-configure gd \
@@ -37,6 +38,7 @@ RUN set -ex; \
 		intl \
 		mysqli \
 		zip \
+		gmp \
 	; \
 # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
 # https://pecl.php.net/package/imagick
