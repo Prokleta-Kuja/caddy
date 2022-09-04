@@ -1,4 +1,4 @@
-name: FPM release
+name: FPM 8.1 release
 
 on:
   workflow_dispatch:
