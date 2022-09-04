@@ -23,6 +23,7 @@ RUN set -ex; \
 		libpng-dev \
 		libwebp-dev \
 		libzip-dev \
+		libgmp-dev \
 	; \
 	\
 	docker-php-ext-configure gd \
@@ -37,6 +38,7 @@ RUN set -ex; \
 		intl \
 		mysqli \
 		zip \
+		gmp \
 	; \
 # https://pecl.php.net/package/imagick
 	pecl install imagick-3.6.0; \

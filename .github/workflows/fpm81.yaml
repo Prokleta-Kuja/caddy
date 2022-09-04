@@ -28,8 +28,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile.fpm
+          file: Dockerfile.fpm81
           push: true
           tags: |
-            ghcr.io/prokleta-kuja/fpm:latest
-            ghcr.io/prokleta-kuja/fpm:${{ github.event.inputs.version }}
+            ghcr.io/prokleta-kuja/fpm81:latest
+            ghcr.io/prokleta-kuja/fpm81:${{ github.event.inputs.version }}
