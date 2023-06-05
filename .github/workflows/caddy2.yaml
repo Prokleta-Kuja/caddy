@@ -1,4 +1,4 @@
-name: Caddy release
+name: Caddy release2
 
 env:
   REGISTRY_IMAGE: ghcr.io/prokleta-kuja/caddy2
