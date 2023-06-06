@@ -9,9 +9,9 @@ create_site ()
     -vhost "$INITIAL_DOMAIN" \
     -user.email "$INITIAL_EMAIL" \
     -password "$INITIAL_PASSWORD" \
-    -db "$GOATCOUNTER_DB";
+    -db "$GOATCOUNTER_DB" &&
 
-    echo "Site $INITIAL_DOMAIN added. Use $INITIAL_EMAIL and password $INITIAL_PASSWORD to login. Do not forget to delete this user."
+    echo "Site $INITIAL_DOMAIN added. Use $INITIAL_EMAIL and password $INITIAL_PASSWORD to login. Do not forget to delete this user.";
 }
 
 # silence any errors
