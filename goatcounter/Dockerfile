@@ -6,6 +6,7 @@ ENV INITIAL_DOMAIN 'delete.me'
 ENV INITIAL_EMAIL 'user@delete.me'
 ENV INITIAL_PASSWORD 'P@ssw0rd!'
 ENV GOATCOUNTER_DB 'sqlite+/app/db/goatcounter.sqlite3'
+ENV EMAIL_FROM 'no-reply@example.com'
 
 WORKDIR /app
 
