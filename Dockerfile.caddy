@@ -1,7 +1,7 @@
-FROM caddy:2.7.4-builder AS builder
+FROM caddy:2.7.5-builder AS builder
 RUN xcaddy build \
     --with github.com/porech/caddy-maxmind-geolocation@29233e285b83dfa070d1f6889c021cb32c161b89 \
     --with github.com/caddy-dns/cloudflare@bfe272c8525b6dd8248fcdddb460fd6accfc4e84
 
-FROM caddy:2.7.4
+FROM caddy:2.7.5
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
