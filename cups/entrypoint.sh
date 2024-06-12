@@ -2,6 +2,7 @@
 
 if [ $(grep -ci $CUPSADMIN /etc/shadow) -eq 0 ]; then
     useradd -r -G lpadmin -M $CUPSADMIN
+    useradd -r -G sys -M $CUPSADMIN
 
     # add password
     echo $CUPSADMIN:$CUPSPASSWORD | chpasswd

@@ -36,4 +36,4 @@ jobs:
             ghcr.io/${{ env.REPO }}:latest
             ghcr.io/${{ env.REPO }}:${{ env.DATE }}
             ghcr.io/${{ env.REPO }}:${{ github.RUN_NUMBER }}
-            ghcr.io/prokleta-kuja/caddy:${{ github.event.inputs.version }}
+            ghcr.io/${{ env.REPO }}:${{ github.event.inputs.version }}
