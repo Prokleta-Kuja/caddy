@@ -1,35 +1,35 @@
 name: postgres release
-
+env:
+  REGISTRY_IMAGE: ghcr.io/prokleta-kuja/postgres
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to tag image with'
+        description: "Version to tag image with"
         required: true
-        default: '0.0.1'
+        default: "0.0.1"
 
 jobs:
   build:
     name: Build and push image
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@v1 
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
+      - name: Build and push
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile.postgres
           push: true
           tags: |
-            ghcr.io/prokleta-kuja/postgres:latest
-            ghcr.io/prokleta-kuja/postgres:${{ github.event.inputs.version }}
+            ${{ env.REGISTRY_IMAGE }}:latest
+            ${{ env.REGISTRY_IMAGE }}:${{ env.DATE }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.RUN_NUMBER }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.event.inputs.version }}
