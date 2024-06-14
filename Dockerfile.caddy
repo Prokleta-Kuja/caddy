@@ -1,8 +1,8 @@
-FROM caddy:2.7.6-builder AS builder
+FROM caddy:2.8.4-builder AS builder
 RUN xcaddy build \
-    --with github.com/porech/caddy-maxmind-geolocation@29233e285b83dfa070d1f6889c021cb32c161b89 \
-    --with github.com/caddy-dns/cloudflare@8789126791ed250b532e1d7d512256737625e6e0 \
+    --with github.com/porech/caddy-maxmind-geolocation@8794ba5a3a9ff1cac49f9c40aed2841646de0324 \
+    --with github.com/caddy-dns/cloudflare@d11ac0bfeab7475d8b89e2dc93f8c7a8b8859b8f \
     --with github.com/muety/caddy-remote-host@b21775afa730ffb52a24ddff310c8a6d1fd37276
 
-FROM caddy:2.7.6
+FROM caddy:2.8.4
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
