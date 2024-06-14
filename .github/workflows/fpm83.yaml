@@ -33,7 +33,7 @@ jobs:
           file: Dockerfile.fpm83
           push: true
           tags: |
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:latest
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ env.DATE }}
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ github.RUN_NUMBER }}
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ github.event.inputs.version }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:latest
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ env.DATE }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ github.RUN_NUMBER }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ github.event.inputs.version }}

@@ -33,7 +33,7 @@ jobs:
           file: cups/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:latest
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ env.DATE }}
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ github.RUN_NUMBER }}
-            ghcr.io/${{ GITHUB_REPOSITORY_OWNER }}:${{ github.event.inputs.version }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:latest
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ env.DATE }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ github.RUN_NUMBER }}
+            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ github.event.inputs.version }}
