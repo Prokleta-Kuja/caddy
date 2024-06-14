@@ -1,5 +1,6 @@
 name: Caddy release
-
+env:
+  REGISTRY_IMAGE: ghcr.io/prokleta-kuja/caddy
 on:
   workflow_dispatch:
     inputs:
@@ -33,7 +34,7 @@ jobs:
           file: Dockerfile.caddy
           push: true
           tags: |
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/caddy:latest
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/caddy:${{ env.DATE }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/caddy:${{ github.RUN_NUMBER }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/caddy:${{ github.event.inputs.version }}
+            ${{ env.REGISTRY_IMAGE }}:latest
+            ${{ env.REGISTRY_IMAGE }}:${{ env.DATE }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.RUN_NUMBER }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.event.inputs.version }}

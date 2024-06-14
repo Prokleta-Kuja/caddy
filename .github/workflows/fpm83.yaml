@@ -1,5 +1,6 @@
 name: FPM 8.3 release
-
+env:
+  REGISTRY_IMAGE: ghcr.io/prokleta-kuja/fpm83
 on:
   workflow_dispatch:
     inputs:
@@ -33,7 +34,7 @@ jobs:
           file: Dockerfile.fpm83
           push: true
           tags: |
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:latest
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ env.DATE }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ github.RUN_NUMBER }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/fpm:${{ github.event.inputs.version }}
+            ${{ env.REGISTRY_IMAGE }}:latest
+            ${{ env.REGISTRY_IMAGE }}:${{ env.DATE }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.RUN_NUMBER }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.event.inputs.version }}

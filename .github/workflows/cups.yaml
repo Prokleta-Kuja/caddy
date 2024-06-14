@@ -1,5 +1,6 @@
 name: CUPS release
-
+env:
+  REGISTRY_IMAGE: ghcr.io/prokleta-kuja/cups
 on:
   workflow_dispatch:
     inputs:
@@ -33,7 +34,7 @@ jobs:
           file: cups/Dockerfile
           push: true
           tags: |
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:latest
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ env.DATE }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ github.RUN_NUMBER }}
-            ghcr.io/${ GITHUB_REPOSITORY_OWNER }/cups:${{ github.event.inputs.version }}
+            ${{ env.REGISTRY_IMAGE }}:latest
+            ${{ env.REGISTRY_IMAGE }}:${{ env.DATE }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.RUN_NUMBER }}
+            ${{ env.REGISTRY_IMAGE }}:${{ github.event.inputs.version }}
