@@ -14,6 +14,11 @@ jobs:
     name: Build and push image
     runs-on: ubuntu-latest
     steps:
+      - name: Generate env variables
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+          echo "DATE=$(date +'%Y-%m-%d')" >> ${GITHUB_ENV}
+          echo "VERSION=$(date +'%Y.%m.%d')-${GITHUB_RUN_NUMBER}" >> ${GITHUB_ENV}
       - name: Checkout
         uses: actions/checkout@v4
       - name: Login to GitHub Container Registry
