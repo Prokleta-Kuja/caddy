@@ -35,5 +35,4 @@ ffmpeg -hide_banner -y \
   -segment_format mkv \
   -segment_atclocktime 1 \
   -strftime 1 \
-  ./%Y-%m-%d_%H-%M-%S.mkv
-  # /data/%Y-%m-%d_%H-%M-%S.mkv
+  /data/%Y-%m-%d_%H-%M-%S.mkv
