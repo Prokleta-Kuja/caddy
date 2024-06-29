@@ -12,17 +12,18 @@ if ! [[ $SPLIT_TIME =~ ^[0-9]+$ ]] ; then
    echo "SPLIT_TIME not a number" >&2; exit 1
 fi
 
-# cronDailyPath="/etc/periodic/daily/delete-old-recordings"
-# echo "#!/bin/sh" > $cronDailyPath
-# echo "find $dir -type f -mtime +$KEEP_DAYS -delete" >> $cronDailyPath
-# chmod +x $cronDailyPath
-# crond
-
+cronDailyPath="/etc/periodic/daily/delete-old-recordings"
+echo "#!/bin/sh" > $cronDailyPath
+echo "find $dir -type f -mtime +$KEEP_DAYS -delete" >> $cronDailyPath
+chmod +x $cronDailyPath
+crond
+# timeout 60000000 is microseconds, so it's set to 60 seconds
 echo "Starting recording @ $(date -u +"%Y-%m-%d_%H:%M:%SZ")"
 
 ffmpeg -hide_banner -y \
   -loglevel error \
   -rtsp_transport tcp \
+  -timeout 60000000 \
   -use_wallclock_as_timestamps 1 \
   -i $INPUT_STREAM \
   -metadata title="$TITLE" \
