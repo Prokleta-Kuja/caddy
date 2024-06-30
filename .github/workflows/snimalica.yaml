@@ -38,3 +38,9 @@ jobs:
             ${{ env.REGISTRY_IMAGE }}:${{ env.DATE }}
             ${{ env.REGISTRY_IMAGE }}:${{ github.RUN_NUMBER }}
             ${{ env.REGISTRY_IMAGE }}:${{ github.event.inputs.version }}
+      - name: Notify Watchtower
+        env:
+          WATCHTOWER_URL: ${{ secrets.WATCHTOWER_URL_K }}
+          WATCHTOWER_TOKEN: ${{ secrets.WATCHTOWER_TOKEN_K }}
+        run: |
+          curl -I -H "Authorization: Bearer $WATCHTOWER_TOKEN" "https://$WATCHTOWER_URL/v1/update"
