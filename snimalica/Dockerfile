@@ -17,6 +17,8 @@ RUN set -eux; \
   apt-get clean; \
   rm -rf /var/lib/apt/lists/*
 
+COPY delete-old-recordings.sh /etc/cron.daily/
+RUN chmod +x /etc/cron.daily/delete-old-recordings.sh
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
