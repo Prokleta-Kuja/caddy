@@ -12,9 +12,9 @@ if ! [[ $SPLIT_TIME =~ ^[0-9]+$ ]] ; then
    echo "SPLIT_TIME not a number" >&2; exit 1
 fi
 
-cronDailyPath="/etc/periodic/daily/delete-old-recordings"
+cronDailyPath="/etc/cron.daily/delete-old-recordings"
 echo "#!/bin/sh" > $cronDailyPath
-echo "find $dir -type f -mtime +$KEEP_DAYS -delete" >> $cronDailyPath
+echo "find /data -type f -mtime +$KEEP_DAYS -delete" >> $cronDailyPath
 chmod +x $cronDailyPath
 crond
 # timeout 60000000 is microseconds, so it's set to 60 seconds
